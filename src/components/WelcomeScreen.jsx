@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Thermometer, ChevronDown, Flame, CheckCircle2, ShieldAlert, Clock, Calendar, Timer } from 'lucide-react';
+
 import bgImage from '../assets/CIRCLE_LIGHT.jpg'; 
+import bgVideo from '../assets/Gallery_BG.mp4';
 
 function ScrollIndicator() {
   return (
@@ -16,16 +19,32 @@ function ScrollIndicator() {
 }
 
 export default function WelcomeScreen({ onEnter }) {
+  const [videoTerminou, setVideoTerminou] = useState(false);
   return (
     <div className="relative min-h-[260vh] bg-lowend-darkest text-white selection:bg-lowend-orange selection:text-black">
     
-      <div className="fixed inset-0 z-0">
-        <img
+      <div className="fixed inset-0 z-0 bg-lowend-darkest">
+        {/* Animação de Fundo */}
+        <video
+          src={bgVideo}
+          autoPlay
+          muted
+          playsInline
+          onEnded={() => setVideoTerminou(true)}
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+
+        {/* Imagem aparece quando termina o video */}
+        <motion.img
           src={bgImage}
           alt="LOWEND Desert"
-          className="w-full h-full object-cover object-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: videoTerminou ? 1 : 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-lowend-darkest/95"></div>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-lowend-darkest/95 z-10"></div>
       </div>
       <div className="relative z-10 flex flex-col items-center justify-between min-h-screen pt-12 pb-12 px-4 text-center">
         
