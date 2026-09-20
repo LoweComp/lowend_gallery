@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, ArrowLeft, Check, CheckSquare, Square, Eye, Sparkles, AlertTriangle } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
@@ -17,6 +17,14 @@ export default function Gallery({ onBack }) {
   const [selectedIds, setSelectedIds] = useState([]);
   const [lightboxIndex, setLightboxIndex] = useState(-1);
   const [isDownloading, setIsDownloading] = useState(false);
+
+  // Rolar para o topo suavemente ao abrir a Galeria
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
 
   // Selecionar / Deselecionar foto individual
   const toggleSelect = (id) => {
