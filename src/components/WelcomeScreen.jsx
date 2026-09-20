@@ -234,7 +234,7 @@ export default function WelcomeScreen({ onEnter }) {
 
             <div className="space-y-1">
               <span className="text-xs text-zinc-400 uppercase tracking-[0.3em]">
-                ÚLTIMA MISSÃO
+                ÚLTIMA EDIÇÃO
               </span>
               <h3 className="text-3xl md:text-5xl font-black text-white uppercase tracking-wider font-sans">
                 LOWEND - O COMEÇO

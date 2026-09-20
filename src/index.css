@@ -6,3 +6,17 @@ body {
   background-color: #050200;
   color: white;
 }
+
+/* EXIT ica vermelho */
+.yarl__button[aria-label="Close"]:hover {
+  color: #ff3333 !important;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Download fica Verde Neon */
+.yarl__button[aria-label="Download"]:hover {
+  color: #00e676 !important;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}

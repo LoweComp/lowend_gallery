@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Download, ArrowLeft, Check, CheckSquare, Square, Eye, Sparkles } from 'lucide-react';
+import { Download, ArrowLeft, Check, CheckSquare, Square, Eye, Sparkles, AlertTriangle } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import LightboxDownload from "yet-another-react-lightbox/plugins/download";
 import { downloadImagesAsZip } from '../utils/downloadHelper';
 
 // FOTOS TEMPORÁRIAS
@@ -110,7 +111,18 @@ export default function Gallery({ onBack }) {
 
       {/* CONTEÚDO DA GALERIA */}
       <main className="p-4 md:p-8 max-w-7xl mx-auto">
-        
+      
+        {/* AVISO: ZIP VS INDIVIDUAL */}
+        <div className="flex items-start md:items-center gap-3 py-3 px-4 rounded-xl bg-lowend-orange/10 border border-lowend-orange/30 shadow-[0_0_15px_rgba(255,77,0,0.1)] mb-6 text-xs md:text-sm font-mono text-zinc-300">
+          <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-lowend-orange shrink-0" />
+          <p className="leading-relaxed">
+            <strong className="text-lowend-orange uppercase tracking-wider block md:inline mb-1 md:mb-0 md:mr-2">
+              [ ATENÇÃO! ]
+            </strong> 
+            O Download Múltiplo gera um arquivo <strong className="text-white">.ZIP</strong>! e é ideal para COMPUTADORES. Se você estiver pelo <strong className="text-white">CELULAR</strong>, recomendamos clicar na foto para ampliar e BAIXAR INDIVIDUALMENTE usando a seta no topo.
+          </p>
+        </div>
+
         {/* Barra Informativa */}
         <div className="flex items-center justify-between py-3 px-4 rounded-xl bg-zinc-900/60 border border-zinc-800/80 mb-6 text-xs font-mono text-zinc-400">
           <span className="flex items-center gap-2">
@@ -184,7 +196,11 @@ export default function Gallery({ onBack }) {
         open={lightboxIndex >= 0}
         close={() => setLightboxIndex(-1)}
         index={lightboxIndex}
-        slides={PLACEHOLDER_PHOTOS.map((p) => ({ src: p.url }))}
+        slides={PLACEHOLDER_PHOTOS.map((p) => ({ 
+          src: p.url,
+          download: p.url
+        }))}
+        plugins={[LightboxDownload]} // Botão de download nativo
       />
 
     </div>
