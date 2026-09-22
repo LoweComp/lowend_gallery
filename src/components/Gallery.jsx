@@ -6,11 +6,10 @@ import 'yet-another-react-lightbox/styles.css';
 import LightboxDownload from "yet-another-react-lightbox/plugins/download";
 import { downloadImagesAsZip } from '../utils/downloadHelper';
 
-// FOTOS TEMPORÁRIAS
-const PLACEHOLDER_PHOTOS = Array.from({ length: 12 }).map((_, index) => ({
+const PLACEHOLDER_PHOTOS = Array.from({ length: 46 }).map((_, index) => ({
   id: index + 1,
-  url: `https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80`,
-  title: `Foto #${index + 1}`
+  url: `/fotos/${index + 1}.webp`, 
+  title: `LOWEND Missão #${index + 1}`
 }));
 
 export default function Gallery({ onBack }) {
@@ -166,6 +165,7 @@ export default function Gallery({ onBack }) {
                     alt={photo.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"       
                   />
 
                   {/* Overlays Gradientes */}
