@@ -6,11 +6,14 @@ import 'yet-another-react-lightbox/styles.css';
 import LightboxDownload from "yet-another-react-lightbox/plugins/download";
 import { downloadImagesAsZip } from '../utils/downloadHelper';
 
-const PLACEHOLDER_PHOTOS = Array.from({ length: 46 }).map((_, index) => ({
-  id: index + 1,
-  url: `/fotos/${index + 1}.webp`, 
-  title: `LOWEND Missão #${index + 1}`
-}));
+const PLACEHOLDER_PHOTOS = Array.from({ length: 217 }).map((_, index) => {
+  const numeroFormatado = String(index + 1).padStart(3, '0');
+  return {
+    id: index + 1,
+    url: `/fotos/LOWEND${numeroFormatado}.webp`, 
+    title: `LOWEND Missão #${numeroFormatado}`
+  };
+});
 
 export default function Gallery({ onBack }) {
   const [selectedIds, setSelectedIds] = useState([]);

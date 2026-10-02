@@ -148,9 +148,14 @@ export default function WelcomeScreen({ onEnter }) {
                 </a>
 
                 {/* Botão de Ingressos */}
-                <button className="flex items-center justify-center gap-2 px-6 py-3 bg-lowend-orange/10 border border-lowend-orange text-lowend-orange hover:bg-lowend-orange hover:text-black transition-all rounded text-xs md:text-sm font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(255,77,0,0.2)] cursor-pointer w-full md:w-auto">
+                <a
+                  href="https://www.sympla.com.br/evento/lowend-2-0-nas-nuvens/3603402"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-lowend-orange/10 border border-lowend-orange text-lowend-orange hover:bg-lowend-orange hover:text-black transition-all rounded text-xs md:text-sm font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(255,77,0,0.2)] cursor-pointer w-full md:w-auto"
+                >
                   <Ticket className="w-4 h-4" /> INGRESSOS
-                </button>
+                </a>
               </div>
             </div>
 
