@@ -10,7 +10,7 @@ const PLACEHOLDER_PHOTOS = Array.from({ length: 217 }).map((_, index) => {
   const numeroFormatado = String(index + 1).padStart(3, '0');
   return {
     id: index + 1,
-    url: `/fotos/LOWEND${numeroFormatado}.webp`, 
+    url: `/fotos/LOWEND${numeroFormatado}.jpg`, 
     title: `LOWEND Missão #${numeroFormatado}`
   };
 });
